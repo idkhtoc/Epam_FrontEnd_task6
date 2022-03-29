@@ -1,10 +1,10 @@
 // Task
-function nameSort(arr, direction) {
-    return arr.sort((a, b) => {
-        if (a.name > b.name) { return direction ? 1 : -1; }
-        if (a.name < b.name) { return direction ? -1 : 1; }
-        return 0;
-    });
+function nameSort(arr, direction = true) {
+    if (Array.isArray(arr)) {
+        return arr.sort((a, b) => {
+            return direction ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
+        });
+    } else { throw Error("You are trying to sort something except Array(") }
 }
 
 const contacts = [
